@@ -27,7 +27,8 @@ public class DealerShoeTest {
 			new GameCard(Suits.CLUB, Ranks.THREE),
 			new GameCard(Suits.CLUB, Ranks.FOUR),
 			new GameCard(Suits.CLUB, Ranks.QUEEN),
-			new GameCard(Suits.CLUB, Ranks.NINE)
+			new GameCard(Suits.CLUB, Ranks.NINE),
+			new GameCard(Suits.CLUB, Ranks.SIX)
 			};
 
 	@Before
@@ -48,6 +49,17 @@ public class DealerShoeTest {
 	@Test
 	public void smoke_test() {
 		assertEquals(true,true);
+	}
+	
+	@Test 
+	public void test_setDeck_set_the_correct_delta() {
+		assertEquals(3 , shoe.getDeckDelta());
+	}
+	
+	@Test
+	public void test_drawCard_returns_card_and_reduces_size_of_deck() {
+		assertTrue(shoe.drawCard() instanceof GameCard);
+		assertEquals(11, shoe.getDeck().size());
 	}
 
 }
